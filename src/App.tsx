@@ -1,53 +1,22 @@
-import { useState } from "react";
+import styled from "styled-components";
 
+const Container = styled.div`
+  background-color: ${(props) => props.theme.bgColor};
+`
+const H1 = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`
 
 function App() {
 
-  const [value, setValue] = useState("");
-  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
-
-    // console.log("event target", event.target)
-    // console.log("event currentTarget", event.currentTarget)
-
-    // 질문하기
-    const {
-      currentTarget: { value }  // => currentTarget의 value를 얻는다
-    } = event;                  // => event를 연다.
-    setValue(value);    // value => string
-  };
-
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("hello", value)
-
-    setValue("")
-  }
-
-  const Click = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("target", event.target)
-    console.log("currentTarget", event.currentTarget)
-  }
-
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          value={value}
-          onChange={onChange}
-          type="text"
-          placeholder="username"
-        />
-        <button onClick={Click}>
-          <p>Log in</p>
-        </button>
-      </form>
-    </div>
+    <Container>
+      <H1>protected</H1>
+    </Container>
   );
 }
 
 export default App;
-
-
 
 
 
